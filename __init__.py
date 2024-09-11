@@ -105,15 +105,17 @@ class FindNotAnyStrings:
 
 
 NODE_CLASS_MAPPINGS = {
-    "custom_FilterStringListByIndexList": FilterStringListByIndexList,
-    "custom_FilterImageListByIndexList": FilterImageListByIndexList,
-    "custom_FindAnyStrings": FindAnyStrings,
-    "custom_FindNotAnyStrings": FindNotAnyStrings,
+    "list_filter_StringToIndex": StringToIndex,
+    "list_filter_FilterStringListByIndexList": FilterStringListByIndexList,
+    "list_filter_FilterImageListByIndexList": FilterImageListByIndexList,
+    "list_filter_FindAnyStrings": FindAnyStrings,
+    "list_filter_FindNotAnyStrings": FindNotAnyStrings,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "custom_FilterStringListByIndexList": "Filter String List By Index List",
-    "custom_FilterImageListByIndexList": "Filter Image List By Index List",
-    "custom_FindAnyStrings": "Find Any Strings",
-    "custom_FindNotAnyStrings": "Find Not Any Strings",
+    "list_filter_StringToIndex": "Index List From String",
+    "list_filter_FilterStringListByIndexList": "Filter String List",
+    "list_filter_FilterImageListByIndexList": "Filter Image List",
+    "list_filter_FindAnyStrings": "Find Any Strings",
+    "list_filter_FindNotAnyStrings": "Find Not Any Strings",
 }
