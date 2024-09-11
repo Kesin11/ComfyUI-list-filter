@@ -5,8 +5,8 @@ class StringToIndex:
   def INPUT_TYPES(cls):
     return {
       "required": {
-        "string": ("STRING", {"default": ""}),
-        "delimiter": ("STRING", {"default": ","}),
+        "string": ("STRING", {"default": "", "tooltip": "The string to be split into indices."}),
+        "delimiter": ("STRING", {"default": ",", "tooltip": "The delimiter used to split the string."}),
       }
     }
 
@@ -16,6 +16,7 @@ class StringToIndex:
   CATEGORY = NODE_CATEGORY
   INPUT_IS_LIST = False
   OUTPUT_IS_LIST = (True,)
+  DESCRIPTION = "Splits a string into a list of indices based on the provided delimiter."
 
   def run(self, string, delimiter):
     return ([int(i) for i in string.split(delimiter)],)
@@ -25,17 +26,19 @@ class FilterStringListByIndexList:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "string_list": ("STRING", {"default": ""}),
-                "index_list": ("INT", {"default": 0}),
+                "string_list": ("STRING", {"default": "", "tooltip": "The list of strings to be filtered."}),
+                "index_list": ("INT", {"default": 0, "tooltip": "The list of indices to filter the string list."}),
             }
         }
 
     RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("filtered_list",)
+    OUTPUT_TOOLTIPS = ("The filtered list of strings.",)
     FUNCTION = "run"
     CATEGORY = NODE_CATEGORY
     INPUT_IS_LIST = True
     OUTPUT_IS_LIST = (True,)
+    DESCRIPTION = "Filters the string list based on the provided index list."
 
     def run(self, string_list, index_list):
         return ([string_list[i] for i in index_list if i < len(string_list)],)
@@ -46,17 +49,19 @@ class FilterImageListByIndexList:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "image_list": ("IMAGE"),
-                "index_list": ("INT", {"default": 0}),
+                "image_list": ("IMAGE", {"tooltip": "The list of images to be filtered."}),
+                "index_list": ("INT", {"default": 0, "tooltip": "The list of indices to filter the image list."}),
             }
         }
 
     RETURN_TYPES = ("IMAGE",)
     RETURN_NAMES = ("filtered_list",)
+    OUTPUT_TOOLTIPS = ("The filtered list of images.",)
     FUNCTION = "run"
     CATEGORY = NODE_CATEGORY
     INPUT_IS_LIST = True
     OUTPUT_IS_LIST = (True,)
+    DESCRIPTION = "Filters the image list based on the provided index list."
 
     def run(self, image_list, index_list):
         return ([image_list[i] for i in index_list if i < len(image_list)],)
@@ -67,17 +72,19 @@ class FindAnyStrings:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "string_list": ("STRING", {"default": ""}),
-                "search_strings": ("STRING", {"default": ""}),
+                "string_list": ("STRING", {"default": "", "tooltip": "The list of strings to search in."}),
+                "search_strings": ("STRING", {"default": "", "tooltip": "The list of strings to search for."}),
             }
         }
 
     RETURN_TYPES = ("BOOLEAN",)
     RETURN_NAMES = ("found",)
+    OUTPUT_TOOLTIPS = ("True if any search string is found, False otherwise.",)
     FUNCTION = "run"
     CATEGORY = NODE_CATEGORY
     INPUT_IS_LIST = True
     OUTPUT_IS_LIST = (False,)
+    DESCRIPTION = "Checks if any of the search strings are present in the string list."
 
     def run(self, string_list, search_strings):
         return (any(s in string_list for s in search_strings),)
@@ -88,17 +95,19 @@ class FindNotAnyStrings:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "string_list": ("STRING", {"default": ""}),
-                "search_strings": ("STRING", {"default": ""}),
+                "string_list": ("STRING", {"default": "", "tooltip": "The list of strings to search in."}),
+                "search_strings": ("STRING", {"default": "", "tooltip": "The list of strings to search for."}),
             }
         }
 
     RETURN_TYPES = ("BOOLEAN",)
     RETURN_NAMES = ("not_found",)
+    OUTPUT_TOOLTIPS = ("True if none of the search strings are found, False otherwise.",)
     FUNCTION = "run"
     CATEGORY = NODE_CATEGORY
     INPUT_IS_LIST = True
     OUTPUT_IS_LIST = (False,)
+    DESCRIPTION = "Checks if none of the search strings are present in the string list."
 
     def run(self, string_list, search_strings):
         return (all(s not in string_list for s in search_strings),)
