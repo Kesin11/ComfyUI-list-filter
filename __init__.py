@@ -47,7 +47,6 @@ class FilterStringListByIndexList:
     def run(self, string_list, index_list):
         return ([string_list[i] for i in index_list if i < len(string_list)],)
 
-# TODO: これも動くかどうかわからん
 class FilterImageListByIndexList:
     @classmethod
     def INPUT_TYPES(cls):
@@ -55,11 +54,12 @@ class FilterImageListByIndexList:
             "required": {
                 "image_list": ("IMAGE", {"tooltip": "The list of images to be filtered."}),
                 "index_list": ("INT", {"default": 0, "tooltip": "The list of indices to filter the image list."}),
+                "return_first_if_none": ("BOOLEAN", {"default": True, "tooltip": "Return the first image if the filtered list is empty."}),
             }
         }
 
     RETURN_TYPES = ("IMAGE",)
-    RETURN_NAMES = ("filtered_list",)
+    RETURN_NAMES = ("image_list",)
     OUTPUT_TOOLTIPS = ("The filtered list of images.",)
     FUNCTION = "run"
     CATEGORY = NODE_CATEGORY
@@ -67,9 +67,13 @@ class FilterImageListByIndexList:
     OUTPUT_IS_LIST = (True,)
     DESCRIPTION = "Filters the image list based on the provided index list."
 
-    def run(self, image_list, index_list):
-        return ([image_list[i] for i in index_list if i < len(image_list)],)
+    def run(self, image_list, index_list, return_first_if_none):
+        return_first_if_none_bool = return_first_if_none[0]
 
+        filtered_list = [image_list[i] for i in index_list if i < len(image_list)]
+        if not filtered_list and return_first_if_none_bool:
+            filtered_list = [image_list[0]] if image_list else []
+        return (filtered_list,)
 
 class FindAnyStrings:
     @classmethod
