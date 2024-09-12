@@ -100,7 +100,6 @@ class FindAnyStrings:
         found_strings = [string_list[i] for i in found_indices]
         return (found_indices, found_strings)
 
-# TODO: 次これ実装
 class FindNotAnyStrings:
     @classmethod
     def INPUT_TYPES(cls):
@@ -108,20 +107,27 @@ class FindNotAnyStrings:
             "required": {
                 "string_list": ("STRING", {"default": "", "tooltip": "The list of strings to search in."}),
                 "search_strings": ("STRING", {"default": "", "tooltip": "The list of strings to search for."}),
+                "delimiter": ("STRING", {"default": ",", "tooltip": "The delimiter used to split the search strings."}),
             }
         }
 
-    RETURN_TYPES = ("BOOLEAN",)
-    RETURN_NAMES = ("not_found",)
-    OUTPUT_TOOLTIPS = ("True if none of the search strings are found, False otherwise.",)
+    RETURN_TYPES = ("INT", "STRING",)
+    RETURN_NAMES = ("not_found_index_list", "not_found_string_list",)
+    OUTPUT_TOOLTIPS = ("The list of indices where search strings are not found.", "The list of strings where search strings are not found.",)
     FUNCTION = "run"
     CATEGORY = NODE_CATEGORY
     INPUT_IS_LIST = True
-    OUTPUT_IS_LIST = (False,)
+    OUTPUT_IS_LIST = (True, True)
     DESCRIPTION = "Checks if none of the search strings are present in the string list."
 
-    def run(self, string_list, search_strings):
-        return (all(s not in string_list for s in search_strings),)
+    def run(self, string_list, search_strings, delimiter):
+        search_strings_str = search_strings[0]
+        delimiter_str = delimiter[0]
+
+        search_list = [s.strip() for s in search_strings_str.split(delimiter_str)]
+        not_found_indices = [i for i, s in enumerate(string_list) if all(search not in s for search in search_list)]
+        not_found_strings = [string_list[i] for i in not_found_indices]
+        return (not_found_indices, not_found_strings)
 
 
 NODE_CLASS_MAPPINGS = {
