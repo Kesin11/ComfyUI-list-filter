@@ -1,4 +1,8 @@
 NODE_CATEGORY = "list-filter"
+# TODO
+# - docstringの追加
+# - READMEへの反映
+# - テストの追加
 
 class StringToIndex:
   @classmethod
@@ -43,7 +47,7 @@ class FilterStringListByIndexList:
     def run(self, string_list, index_list):
         return ([string_list[i] for i in index_list if i < len(string_list)],)
 
-
+# TODO: これも動くかどうかわからん
 class FilterImageListByIndexList:
     @classmethod
     def INPUT_TYPES(cls):
@@ -73,23 +77,30 @@ class FindAnyStrings:
         return {
             "required": {
                 "string_list": ("STRING", {"default": "", "tooltip": "The list of strings to search in."}),
-                "search_strings": ("STRING", {"default": "", "tooltip": "The list of strings to search for."}),
+                "search_strings": ("STRING", {"default": "", "tooltip": "The strings to search for."}),
+                "delimiter": ("STRING", {"default": ",", "tooltip": "The delimiter used to split the search strings."}),
             }
         }
 
-    RETURN_TYPES = ("BOOLEAN",)
-    RETURN_NAMES = ("found",)
-    OUTPUT_TOOLTIPS = ("True if any search string is found, False otherwise.",)
+    RETURN_TYPES = ("INT", "STRING",)
+    RETURN_NAMES = ("found_index_list", "found_string_list",)
+    OUTPUT_TOOLTIPS = ("The list of indices where search strings are found.", "The list of found strings.",)
     FUNCTION = "run"
     CATEGORY = NODE_CATEGORY
     INPUT_IS_LIST = True
-    OUTPUT_IS_LIST = (False,)
+    OUTPUT_IS_LIST = (True, True)
     DESCRIPTION = "Checks if any of the search strings are present in the string list."
 
-    def run(self, string_list, search_strings):
-        return (any(s in string_list for s in search_strings),)
+    def run(self, string_list, search_strings, delimiter):
+        search_strings_str = search_strings[0]
+        delimiter_str = delimiter[0]
 
+        search_list = [s.strip() for s in search_strings_str.split(delimiter_str)]
+        found_indices = [i for i, s in enumerate(string_list) if any(search in s for search in search_list)]
+        found_strings = [string_list[i] for i in found_indices]
+        return (found_indices, found_strings)
 
+# TODO: 次これ実装
 class FindNotAnyStrings:
     @classmethod
     def INPUT_TYPES(cls):
