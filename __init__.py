@@ -1,3 +1,5 @@
+import random
+
 NODE_CATEGORY = "list-filter"
 # TODO
 # - docstringの追加
@@ -133,6 +135,43 @@ class FindNotAnyStrings:
         not_found_strings = [string_list[i] for i in not_found_indices]
         return (not_found_indices, not_found_strings)
 
+class RandomNormalDist:
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "mean": ("FLOAT", {"default": 0.0, "tooltip": "The mean of the normal distribution."}),
+                "std_dev": ("FLOAT", {"default": 1.0, "tooltip": "The standard deviation of the normal distribution."}),
+                "num_samples": ("INT", {"default": 10, "tooltip": "The number of random samples to generate."}),
+                "min_value": ("FLOAT", {"default": 5.0, "tooltip": "The minimum value of the generated samples."}),
+                "max_value": ("FLOAT", {"default": 8.0, "tooltip": "The maximum value of the generated samples."}),
+            }
+        }
+
+    RETURN_TYPES = ("LIST","FLOAT")
+    RETURN_NAMES = ("random_samples","first_sample")
+    OUTPUT_TOOLTIPS = ("The list of generated random samples.","The first generated random sample.")
+    FUNCTION = "run"
+    CATEGORY = "Random"
+    INPUT_IS_LIST = False
+    OUTPUT_IS_LIST = (True,False,)
+    DESCRIPTION = "Generates random samples from a normal distribution."
+
+    def run(self, mean, std_dev, num_samples, min_value, max_value):
+        mean_val = mean
+        std_dev_val = std_dev
+        num_samples_val = num_samples
+        min_val = min_value
+        max_val = max_value
+
+        random_samples = []
+        for _ in range(num_samples_val):
+            sample = random.gauss(mean_val, std_dev_val)
+            sample = max(min(sample, max_val), min_val)
+            sample = round(sample, 1)
+            random_samples.append(sample)
+
+        return (random_samples,random_samples[0],)
 
 NODE_CLASS_MAPPINGS = {
     "list_filter_StringToIndex": StringToIndex,
@@ -140,6 +179,7 @@ NODE_CLASS_MAPPINGS = {
     "list_filter_FilterImageListByIndexList": FilterImageListByIndexList,
     "list_filter_FindAnyStrings": FindAnyStrings,
     "list_filter_FindNotAnyStrings": FindNotAnyStrings,
+    "random_normal_dist": RandomNormalDist,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -148,4 +188,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "list_filter_FilterImageListByIndexList": "Filter Image List",
     "list_filter_FindAnyStrings": "Find Any Strings",
     "list_filter_FindNotAnyStrings": "Find Not Any Strings",
+    "random_normal_dist": "Random Normal Distribution",
 }
