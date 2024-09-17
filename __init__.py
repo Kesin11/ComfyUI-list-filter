@@ -2,9 +2,10 @@ import random
 
 NODE_CATEGORY = "list-filter"
 # TODO
-# - docstringの追加
-# - READMEへの反映
-# - テストの追加
+# - Add README
+# - Add Example
+# - Add pyproject.toml
+#   - see https://docs.comfy.org/registry/overview
 
 class StringToIndex:
   @classmethod
