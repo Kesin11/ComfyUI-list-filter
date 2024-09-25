@@ -8,7 +8,9 @@ ComfyUI-list-filter provides nodes that convert string indices to integer lists 
 More generally, ComfyUI-list-filter provides convenient nodes for filtering lists in ComfyUI workflow.
 
 ## Example
-See [example](./example/) directory.
+![example](https://github.com/user-attachments/assets/b1485023-5d95-485a-9239-620784a05d74)
+
+The sample workflow is in the [example](./example/) directory.
 
 ## Custom nodes
 - `Index List From String` - Splits a string into a list of indices based on the provided delimiter.
