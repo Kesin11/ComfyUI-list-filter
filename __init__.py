@@ -2,8 +2,6 @@ import random
 
 NODE_CATEGORY = "list-filter"
 # TODO
-# - Add README
-# - Add Example
 # - Add pyproject.toml
 #   - see https://docs.comfy.org/registry/overview
 

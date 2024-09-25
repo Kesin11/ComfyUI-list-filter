@@ -1,0 +1,1468 @@
+{
+  "last_node_id": 27,
+  "last_link_id": 56,
+  "nodes": [
+    {
+      "id": 11,
+      "type": "PromptCombinator",
+      "pos": {
+        "0": -102,
+        "1": -111
+      },
+      "size": {
+        "0": 400,
+        "1": 538
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input_list_8",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "input_list_8"
+          }
+        },
+        {
+          "name": "input_list_7",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "input_list_7"
+          }
+        },
+        {
+          "name": "input_list_6",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "input_list_6"
+          }
+        },
+        {
+          "name": "input_list_5",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "input_list_5"
+          }
+        },
+        {
+          "name": "input_list_4",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "input_list_4"
+          }
+        },
+        {
+          "name": "input_list_3",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "input_list_3"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "prompts",
+          "type": "STRING",
+          "links": [
+            12,
+            13,
+            18
+          ],
+          "slot_index": 0,
+          "shape": 6
+        },
+        {
+          "name": "combination_ids",
+          "type": "PROMPTCOMBINATORIDS",
+          "links": null,
+          "shape": 6
+        },
+        {
+          "name": "filenames",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PromptCombinator"
+      },
+      "widgets_values": [
+        "@",
+        "#",
+        "comma and space",
+        "beautiful scenery nature glass bottle landscape",
+        "purple galaxy bottle\nred galaxy bottle\nyellow galaxy bottle\ngreen galaxy bottle",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 12,
+      "type": "ShowText|pysssss",
+      "pos": {
+        "0": 333,
+        "1": -122
+      },
+      "size": {
+        "0": 421.32586669921875,
+        "1": 340.84808349609375
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 13,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "beautiful scenery nature glass bottle landscape, purple galaxy bottle",
+        "beautiful scenery nature glass bottle landscape, red galaxy bottle",
+        "beautiful scenery nature glass bottle landscape, yellow galaxy bottle",
+        "beautiful scenery nature glass bottle landscape, green galaxy bottle"
+      ]
+    },
+    {
+      "id": 25,
+      "type": "Anything Everywhere3",
+      "pos": {
+        "0": -380,
+        "1": 510
+      },
+      "size": {
+        "0": 252,
+        "1": 66
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MODEL",
+          "type": "*",
+          "link": 39,
+          "color_on": "#B39DDB"
+        },
+        {
+          "name": "CLIP",
+          "type": "*",
+          "link": 40,
+          "color_on": "#FFD500"
+        },
+        {
+          "name": "VAE",
+          "type": "*",
+          "link": 41,
+          "color_on": "#FF6E6E"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Anything Everywhere3",
+        "group_restricted": 0,
+        "color_restricted": 0
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": {
+        "0": -720,
+        "1": 660
+      },
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            42
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        512,
+        512,
+        1
+      ]
+    },
+    {
+      "id": 26,
+      "type": "Anything Everywhere",
+      "pos": {
+        "0": -380,
+        "1": 660
+      },
+      "size": {
+        "0": 239.40000915527344,
+        "1": 26
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "LATENT",
+          "type": "*",
+          "link": 42,
+          "color_on": "#FF9CF9"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Anything Everywhere",
+        "group_restricted": 0,
+        "color_restricted": 0
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": {
+        "0": -730,
+        "1": 510
+      },
+      "size": {
+        "0": 315,
+        "1": 98
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            39
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            40
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            41
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "AnythingXL_xl.safetensors"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": -93,
+        "1": 506
+      },
+      "size": {
+        "0": 381.2110290527344,
+        "1": 54
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 12,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            4
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "beautiful scenery nature glass bottle landscape, purple galaxy bottle,"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": -86,
+        "1": 622
+      },
+      "size": {
+        "0": 394.0110168457031,
+        "1": 144.13259887695312
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            6,
+            29
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "text, watermark"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": {
+        "0": 337,
+        "1": 510
+      },
+      "size": {
+        "0": 315,
+        "1": 474
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": null
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 4
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 6
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            7
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        1116584721287295,
+        "randomize",
+        20,
+        8,
+        "euler",
+        "normal",
+        1
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": {
+        "0": 668,
+        "1": 515
+      },
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 19,
+      "type": "ConditioningConcat",
+      "pos": {
+        "0": 1322,
+        "1": 175
+      },
+      "size": {
+        "0": 380.4000244140625,
+        "1": 46
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning_to",
+          "type": "CONDITIONING",
+          "link": 26
+        },
+        {
+          "name": "conditioning_from",
+          "type": "CONDITIONING",
+          "link": 27
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            28
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningConcat"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 13,
+      "type": "ShowText|pysssss",
+      "pos": {
+        "0": 933,
+        "1": -393
+      },
+      "size": {
+        "0": 315,
+        "1": 76
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 14,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "0,3"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 897,
+        "1": 228
+      },
+      "size": {
+        "0": 394.6331481933594,
+        "1": 76
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            27
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "from above"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 905,
+        "1": 112
+      },
+      "size": {
+        "0": 373.55877685546875,
+        "1": 54
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 20,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            26
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 21,
+      "type": "WD14Tagger|pysssss",
+      "pos": {
+        "0": 1975.19970703125,
+        "1": -101.19998168945312
+      },
+      "size": {
+        "0": 670.642822265625,
+        "1": 352.6954650878906
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 34
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            37
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WD14Tagger|pysssss"
+      },
+      "widgets_values": [
+        "wd-vit-tagger-v3",
+        0.3,
+        1,
+        true,
+        false,
+        "",
+        "outdoors, sky, day, water, blue sky, no humans, grass, bottle, star \\(sky\\), scenery, starry sky, reflection, mountain, mountainous horizon, lake",
+        "solo, water, cup, no humans, shadow, from above, reflection, lily pad"
+      ]
+    },
+    {
+      "id": 24,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 2424.199951171875,
+        "1": 323.8000793457031
+      },
+      "size": {
+        "0": 210,
+        "1": 246
+      },
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 38
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 17,
+      "type": "KSampler",
+      "pos": {
+        "0": 1353,
+        "1": 405
+      },
+      "size": {
+        "0": 334.26953125,
+        "1": 474
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": null
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 28
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 29
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            45
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        1015093337671411,
+        "randomize",
+        20,
+        8,
+        "euler",
+        "normal",
+        1
+      ]
+    },
+    {
+      "id": 20,
+      "type": "VAEDecode",
+      "pos": {
+        "0": 1712,
+        "1": 405
+      },
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 45
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            34,
+            36
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 14,
+      "type": "list_filter_StringToIndex",
+      "pos": {
+        "0": 938,
+        "1": -262
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "link": 16,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "index_list",
+          "type": "INT",
+          "links": [
+            17
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "title": "Index List From String (ComfyUI-list-filter)",
+      "properties": {
+        "Node name for S&R": "list_filter_StringToIndex"
+      },
+      "widgets_values": [
+        "",
+        ","
+      ]
+    },
+    {
+      "id": 15,
+      "type": "list_filter_FilterStringListByIndexList",
+      "pos": {
+        "0": 937,
+        "1": -115
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string_list",
+          "type": "STRING",
+          "link": 18,
+          "widget": {
+            "name": "string_list"
+          }
+        },
+        {
+          "name": "index_list",
+          "type": "INT",
+          "link": 17,
+          "widget": {
+            "name": "index_list"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "filtered_list",
+          "type": "STRING",
+          "links": [
+            20
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "title": "Filter String List (ComfyUI-list-filter)",
+      "properties": {
+        "Node name for S&R": "list_filter_FilterStringListByIndexList"
+      },
+      "widgets_values": [
+        "",
+        0
+      ]
+    },
+    {
+      "id": 23,
+      "type": "list_filter_FindAnyStrings",
+      "pos": {
+        "0": 1985,
+        "1": 304
+      },
+      "size": {
+        "0": 329.47088623046875,
+        "1": 138.5626678466797
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string_list",
+          "type": "STRING",
+          "link": 37,
+          "widget": {
+            "name": "string_list"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "found_index_list",
+          "type": "INT",
+          "links": [
+            35
+          ],
+          "slot_index": 0,
+          "shape": 6
+        },
+        {
+          "name": "found_string_list",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 1,
+          "shape": 6
+        }
+      ],
+      "title": "Find Any Strings (ComfyUI-list-filter)",
+      "properties": {
+        "Node name for S&R": "list_filter_FindAnyStrings"
+      },
+      "widgets_values": [
+        "",
+        "bottle",
+        ","
+      ]
+    },
+    {
+      "id": 22,
+      "type": "list_filter_FilterImageListByIndexList",
+      "pos": {
+        "0": 1983,
+        "1": 499
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_list",
+          "type": "IMAGE",
+          "link": 36
+        },
+        {
+          "name": "index_list",
+          "type": "INT",
+          "link": 35,
+          "widget": {
+            "name": "index_list"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image_list",
+          "type": "IMAGE",
+          "links": [
+            38
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "title": "Filter Image List (ComfyUI-list-filter)",
+      "properties": {
+        "Node name for S&R": "list_filter_FilterImageListByIndexList"
+      },
+      "widgets_values": [
+        0,
+        true
+      ]
+    },
+    {
+      "id": 10,
+      "type": "Preview Chooser",
+      "pos": {
+        "0": 915,
+        "1": 521
+      },
+      "size": {
+        "0": 210,
+        "1": 422
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 10
+        },
+        {
+          "name": "latents",
+          "type": "LATENT",
+          "link": null
+        },
+        {
+          "name": "masks",
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "name": "segs",
+          "type": "SEGS",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "latents",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "masks",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "selected",
+          "type": "STRING",
+          "links": [
+            14,
+            16
+          ],
+          "slot_index": 3,
+          "shape": 3
+        },
+        {
+          "name": "segs",
+          "type": "SEGS",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Preview Chooser"
+      },
+      "widgets_values": [
+        "Always pause",
+        1,
+        "",
+        ""
+      ]
+    }
+  ],
+  "links": [
+    [
+      4,
+      6,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      6,
+      7,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      7,
+      3,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      10,
+      8,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      12,
+      11,
+      0,
+      6,
+      1,
+      "STRING"
+    ],
+    [
+      13,
+      11,
+      0,
+      12,
+      0,
+      "STRING"
+    ],
+    [
+      14,
+      10,
+      3,
+      13,
+      0,
+      "STRING"
+    ],
+    [
+      16,
+      10,
+      3,
+      14,
+      0,
+      "STRING"
+    ],
+    [
+      17,
+      14,
+      0,
+      15,
+      1,
+      "INT"
+    ],
+    [
+      18,
+      11,
+      0,
+      15,
+      0,
+      "STRING"
+    ],
+    [
+      20,
+      15,
+      0,
+      16,
+      1,
+      "STRING"
+    ],
+    [
+      26,
+      16,
+      0,
+      19,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      27,
+      18,
+      0,
+      19,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      28,
+      19,
+      0,
+      17,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      29,
+      7,
+      0,
+      17,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      34,
+      20,
+      0,
+      21,
+      0,
+      "IMAGE"
+    ],
+    [
+      35,
+      23,
+      0,
+      22,
+      1,
+      "INT"
+    ],
+    [
+      36,
+      20,
+      0,
+      22,
+      0,
+      "IMAGE"
+    ],
+    [
+      37,
+      21,
+      0,
+      23,
+      0,
+      "STRING"
+    ],
+    [
+      38,
+      22,
+      0,
+      24,
+      0,
+      "IMAGE"
+    ],
+    [
+      39,
+      4,
+      0,
+      25,
+      0,
+      "MODEL"
+    ],
+    [
+      40,
+      4,
+      1,
+      25,
+      1,
+      "CLIP"
+    ],
+    [
+      41,
+      4,
+      2,
+      25,
+      2,
+      "VAE"
+    ],
+    [
+      42,
+      5,
+      0,
+      26,
+      0,
+      "LATENT"
+    ],
+    [
+      45,
+      17,
+      0,
+      20,
+      0,
+      "LATENT"
+    ],
+    [
+      46,
+      4,
+      1,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      47,
+      4,
+      1,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      48,
+      4,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      49,
+      5,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      50,
+      4,
+      2,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      51,
+      4,
+      1,
+      18,
+      0,
+      "CLIP"
+    ],
+    [
+      52,
+      4,
+      1,
+      16,
+      0,
+      "CLIP"
+    ],
+    [
+      53,
+      4,
+      0,
+      17,
+      0,
+      "MODEL"
+    ],
+    [
+      54,
+      5,
+      0,
+      17,
+      3,
+      "LATENT"
+    ],
+    [
+      55,
+      4,
+      2,
+      20,
+      1,
+      "VAE"
+    ],
+    [
+      56,
+      5,
+      0,
+      10,
+      1,
+      "LATENT"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Filter images by detected tags",
+      "bounding": [
+        1954,
+        -191,
+        742,
+        854
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "Concat to additional prompts",
+      "bounding": [
+        878,
+        16,
+        836,
+        323
+      ],
+      "color": "#b58b2a",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "Create base images",
+      "bounding": [
+        -119,
+        -244,
+        950,
+        1258
+      ],
+      "color": "#b58b2a",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "Extract selected images prompts",
+      "bounding": [
+        879,
+        -486,
+        420,
+        484
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7513148009015778,
+      "offset": [
+        925.1463788144397,
+        517.3450202592826
+      ]
+    },
+    "groupNodes": {}
+  },
+  "version": 0.4
+}
