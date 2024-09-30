@@ -1,0 +1,14 @@
+[project]
+name = "comfyui-list-filter"
+description = "Custom nodes for convenient filtering image or string lists in ComfyUI workflow."
+version = "1.0.0"
+license = {file = "LICENSE"}
+
+[project.urls]
+Repository = "https://github.com/Kesin11/ComfyUI-list-filter"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "kesin11"
+DisplayName = "ComfyUI-list-filter"
+Icon = ""
