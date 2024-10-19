@@ -1,4 +1,6 @@
 # ComfyUI-list-filter
+https://registry.comfy.org/nodes/comfyui-list-filter
+
 Custom nodes for convenient filtering image or string lists in ComfyUI workflow.
 
 Motivation: By using [ComfyUI-Image-Selector](https://github.com/SLAPaper/ComfyUI-Image-Selector) in ComfyUI, it is possible to create a workflow that selects images and performs additional processing. However, the `selected_indexes` obtained in this process are strings, which cannot be directly connected to nodes that require indices. ComfyUI-list-filter was created to facilitate the creation of such complex workflows.
